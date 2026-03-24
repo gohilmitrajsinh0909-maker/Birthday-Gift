@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Khushi 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #ffdde1);
+    background-size: 600% 600%;
+    animation: gradientBG 10s ease infinite;
+    text-align: center;
+    color: white;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Balloons */
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    background: red;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-900px);}
+}
+
+/* Teddy */
+.teddy {
+    position: absolute;
+    bottom: 0;
+    font-size: 40px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-20px);}
+}
+
+/* Content */
+.container {
+    position: relative;
+    top: 20%;
+}
+
+h1 {
+    font-size: 55px;
+    text-shadow: 0 0 20px white;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #ff4da6;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#surprise {
+    display: none;
+    margin-top: 30px;
+    font-size: 22px;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Birthday Khushi 🎂💖</h1>
+
+    <button onclick="showSurprise()">Click for Surprise 💌</button>
+
+    <div id="surprise">
+        You are the cutest part of my life 🧸💖  
+        Stay happy, stay mine, and keep smiling forever ✨  
+        I’m lucky to have you 💫  
+    </div>
+</div>
+
+<script>
+function showSurprise() {
+    document.getElementById("surprise").style.display = "block";
+}
+
+/* Create Balloons */
+function createBalloon() {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * window.innerWidth + "px";
+    balloon.style.background = ["#ff4d6d","#ff85a1","#ffb3c6","#cdb4db"][Math.floor(Math.random()*4)];
+    document.body.appendChild(balloon);
+
+    setTimeout(() => {
+        balloon.remove();
+    }, 6000);
+}
+setInterval(createBalloon, 500);
+
+/* Create Teddy Bears */
+function createTeddy() {
+    const teddy = document.createElement("div");
+    teddy.classList.add("teddy");
+    teddy.innerHTML = "🧸";
+    teddy.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(teddy);
+
+    setTimeout(() => {
+        teddy.remove();
+    }, 4000);
+}
+setInterval(createTeddy, 1200);
+</script>
+
+</body>
+</html>
